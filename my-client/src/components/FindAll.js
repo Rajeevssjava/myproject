@@ -6,7 +6,7 @@ export function FindAll() {
     async function findAllHandler(e) {
         e.preventDefault();
         try {
-            const response = await axios.get('http://localhost:3001/api/employees');
+            const response = await axios.get('https://backend-dwgb.onrender.com/api/employees');
             setEmployees(response.data);
         }
         catch (err) {
