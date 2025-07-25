@@ -13,7 +13,7 @@ export function Update(){
         e.preventDefault();
         try
         {
-const response = await axios.put(`http://localhost:3001/api/employees/${id}`, { empNo: Number(empNo),empName, empSal: Number(empSal) });
+const response = await axios.put(`https://backend-dwgb.onrender.com/api/employees/${id}`, { empNo: Number(empNo),empName, empSal: Number(empSal) });
             alert(response.data.message);
         }
         catch(err)
