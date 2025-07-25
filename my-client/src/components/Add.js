@@ -11,7 +11,7 @@ export function Add(){
         e.preventDefault();
           try
           {
-const response = await axios.post('http://localhost:3001/api/employees',
+const response = await axios.post('https://backend-dwgb.onrender.com/api/employees',
                 {empNo,empName,empSal});
 alert(response.data.message);
         }
