@@ -5,7 +5,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
-const PORT = 3001;
+const PORT = 'https://frontend-lxkz.onrender.com';
 // Middleware to parse JSON bodies
 app.use(express.json());
 app.use(cors());
