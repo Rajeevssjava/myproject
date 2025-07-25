@@ -1,0 +1,555 @@
+1. https://git-scm.com/downloads
+
+2. git --version
+
+
+3. Apne project folder (myproject) me Git initialize karna.
+    Step 1: Apne project folder me Git initialize karna
+    
+    Apne computer me wo folder kholo jahan tumhara project hai, matlab myproject folder.
+    
+    Wahan pe terminal (Command Prompt ya PowerShell) kholna hai. Windows me, folder me jaake address bar me 
+    cmd type kar ke Enter kar sakte ho.
+    
+    Terminal me ye command likho aur Enter dabao:
+    git init
+
+4. Iska matlab hai ki tumne apne project ko Git ke liye ready kar diya hai. 
+    Isse tumhare project folder me ek hidden folder .git ban jayega (tumhe dikhai nahi dega), 
+    jisme Git apna data store karta hai.
+
+
+
+
+
+4. Fir basic commands se apna code Git me dalna.
+    Ye command tumhare project ke saare files ko Git ke staging area me le aayega:
+    git add .
+
+5. Pehla commit karna
+    Commit matlab changes ko save karna Git ke andar, ek snapshot lena.
+    Ye command chalao:
+    git commit -m "Initial commit with .gitignore"
+
+    Yahan "Initial commit with .gitignore" ek message hai jo tumhare commit ko describe karta hai. 
+    Tum isse waise hi rakh sakte ho.
+
+    Ye commands tumhare project ka pehla version Git me save kar degi.
+
+
+
+
+
+
+
+
+
+
+mongosh "mongodb+srv://shishodia-cluster.abgel3a.mongodb.net/" --apiVersion 1 --username rajeevssjava
+
+
+mongodb+srv://rajeevssjava:Password@123@mycluster.ipwytge.mongodb.net/company?retryWrites=true&w=majority&appName=MyCluster
+
+✅ Step 1: MongoDB Atlas Par Account Create Karna
+Gaye: https://www.mongodb.com/cloud/atlas
+
+Click kiya: Try Free
+
+Google sign-in ya email+password se account banaya/login kiya
+
+Redirect hua: https://cloud.mongodb.com → ye hai dashboard
+
+(Optional) Agar MFA maanga:
+
+“Remind me later” par click kiya
+
+Ya Authenticator App se setup kiya (Google Authenticator)
+
+Email MFA setup bhi option tha
+
+✅ Step 2: Dashboard Pe Login
+Login ke baad MongoDB Atlas ka dashboard khula
+
+Yahan se aage hum Cluster banayenge
+
+............
+Summary abhi tak ke steps ka:
+Visit kiya: https://www.mongodb.com/cloud/atlas
+
+Login/signup kiya: Apni email ya Google se
+
+Redirect hua: https://cloud.mongodb.com par — ye MongoDB Atlas ka dashboard hai
+
+Login hua aur dashboard open ho gaya
+.............
+
+
+Step 3: Cluster Create Karna (Aur iska faayda)
+Cluster kya hota hai?
+Cluster ek MongoDB server ka group hota hai, jahan tumhara data store hota hai.
+
+Ye cloud mein hota hai, matlab internet par accessible hai — tumhare backend server (Express app) isse connect karke data read/write kar sakta hai.
+
+Cluster create karne se tum apna database ready karte ho, jo online available hota hai, local machine nahi.
+
+
+Cluster banane ka step-by-step tareeka:
+Dashboard pe “Build a Cluster” ya “Create a Cluster” button dhoondo
+
+Free Tier (M0) cluster choose karo — ye bilkul free hai, students ke liye best option hai
+
+Cloud provider select karo (default AWS, Google Cloud, ya Azure) — AWS best hai generally
+
+Region select karo — apne paas sabse najdeek wala region choose karo (e.g., Mumbai/Asia Pacific) taaki fast response mile
+
+Cluster ka naam daal sakte ho (default bhi chalega) — tum "employee-cluster" ya kuch bhi rakh sakte ho
+
+“Create Cluster” pe click karo
+
+
+
+Cluster create karne ka faayda:
+Tumhara MongoDB database cloud mein ready ho jata hai
+
+Ye accessible hota hai worldwide, internet se
+
+Backend app tum is cluster se connect karke data CRUD kar sakta hai
+
+Tumhara local MongoDB ab backend ke liye zaroori nahi hai, ab tumhara app real world mein kaam karega
+
+Ye free tier chhote projects ke liye perfect hai — jaise tumhara employee management system
+
+
+
+
+user name : rajeevssjava
+password : Password#2424
+
+mongodb+srv://rajeevssjava:vdZr2ju8RL1uoMIC@shishodia-cluster.lv45bue.mongodb.net/company?retryWrites=true&w=majority&appName=shishodia-cluster
+
+MONGO_URI=mongodb+srv://rajeevssjava:vdZr2ju8RL1uoMIC@shishodia-cluster.lv45bue.mongodb.net/company?retryWrites=true&w=majority&appName=shishodia-cluster
+
+MONGO_URI=mongodb+srv://rajeevssjava:vdZr2ju8RL1uoMIC@emp-cluster.zlya9tu.mongodb.net/company?retryWrites=true&w=majority&apiVersion=1
+
+
+
+dotenv.config(); is a line of code that loads environment variables from your .env file into Node.js’s process.env object.
+import dotenv from 'dotenv';
+dotenv.config();
+
+console.log(process.env.MONGO_URI); // prints your Mongo URI from .env
+console.log(process.env.PORT); // prints 5000
+
+
+npm install dotenv
+
+
+Nahi, require('dotenv').config(); ko variable mein store karne ki zarurat nahi hoti.
+
+Ye line dotenv package ko load kar ke turant .env file se environment variables ko process.env mein daal deta hai.
+
+require('dotenv').config();
+console.log(process.env.MONGO_URI);  // Ab yeh access ho jayega
+
+=====================================================
+Add
+------
+import axios from "axios";
+import { useState } from "react"
+export function AddRecord1(){
+
+    const[empNo,setNo]     = useState("");
+    const[empName,setName] = useState("");
+    const[empSal,setSal]   = useState("");
+    
+    async function addHandler(e)
+    {
+        e.preventDefault();
+        try
+        {
+//const response = await axios.post('http://localhost:8085/employee/addRecord',{empNo,empName,empSal});
+//alert(response.data);
+ //const result = await response.data;
+const response = await axios.post('http://localhost:3000/api/employess',{empNo,empName,empSal});
+alert(response.data.message);
+            //alert(JSON.stringify(response.data, null, 2));
+        }
+        catch(err)
+        {
+            alert(err);
+        }
+    }
+
+    return(
+        <div style={{border:'5px solid green',width:'350px',padding:'20px',margin:'50px auto 0 auto',textAlign:'center'}}>
+            <h2>Add Record Screen</h2>
+            <hr  style={{backgroundColor:'red',height:'10px'}}/>
+            <form onSubmit={addHandler}>
+                <input type="text" placeholder="Enter No"   value={empNo}   onChange={e => setNo(e.target.value)}   required/><br/><br/>
+                <input type="text" placeholder="Enter Name" value={empName} onChange={e => setName(e.target.value)} required/><br/><br/>
+                <input type="text" placeholder="Enter Sal"  value={empSal}  onChange={e => setSal(e.target.value)}  required/><br/><br/>
+                <button type="submit">Add Record By AXIOS</button>
+
+            </form>
+        </div>
+    )
+}
+
+===============================================
+FindAll
+=======
+import axios from "axios";
+import { useState } from "react"
+export function FindAll(){
+   const[employees,setEmployees]=useState([]);
+    async function findAllHandler(e)
+    {
+        e.preventDefault();
+        try
+        {
+//const response = await axios.get('http://localhost:8085/employee/findAll');
+const response = await axios.get('http://localhost:3000/api/employess');
+setEmployees(response.data);
+        }
+        catch(err)
+        {
+            alert(err);
+        }
+    }
+    return(
+        <div style={{border:'5px solid green',width:'350px',padding:'20px',margin:'50px auto 0 auto',textAlign:'center'}}>
+            <h2>Employee Records</h2>
+            <hr  style={{backgroundColor:'red',height:'10px'}}/>
+            <form onSubmit={findAllHandler}>
+               <button type="submit">Get All Records</button>
+            </form>
+            <div style={{border:'2px solid black',width:'90%',height:'300px', padding:'10px',textAlign:'center',margin:'20px auto 0 auto'}} >
+                  <table width={'100%'} border={'1'}>
+                        <thead>
+                            <th>No</th>
+                            <th>Name</th>
+                            <th>Sal</th>
+                        </thead>
+                        <tbody>
+                            {
+                                employees.length > 0 ? (
+                                    employees.map(emp => (
+                                        <tr>
+                                            <td>{emp.empNo}</td>
+                                            <td>{emp.empName}</td>
+                                            <td>{emp.empSal}</td>
+                                        </tr>
+                                    ))
+                                ) : <tr><td colSpan={'3'}>No Record</td></tr>
+                            }
+                        </tbody>
+                    </table> 
+            </div>
+        </div>
+    )
+}
+
+
+===============================================
+Find
+------
+import axios from "axios";
+import { useState } from "react"
+
+export function FindRecord(){
+    const[no,setNo]=useState("");
+    const[employee,setEmployee] =useState(null);
+
+    async function getData(e)
+    {
+        //e.preventDefault();
+        try
+        {
+//const response = await axios.get(`http://localhost:8085/employee/findRecord?empNo=${no}`);
+const response = await axios.get(`http://localhost:3000/api/employess/${no}`);
+setEmployee(response.data);
+        }
+        catch(err)
+        {
+            setEmployee(null);
+            alert("Employee Not Found : " + err);
+
+        }
+    };
+    return(
+        <div style={{border:'2px solid black',width:'30%',padding:'10px',textAlign:'center',margin:'120px auto 0 auto'}}>
+            <h3>Find Record By ID</h3>
+            <hr/>
+            
+            <input type="text" placeholder="Enter no" value={no} onChange={e => setNo(e.target.value)} required/>
+            <br/><br/>
+            <button onClick={getData}>Find Data</button>
+            <br/>
+                { employee && (
+             <div style={{border:'2px solid black',width:'90%',height:'200px', padding:'10px',textAlign:'center',margin:'120px auto 0 auto'}} >
+                    <h4>Employee Details</h4>
+                    <hr/>
+                    <p>Emp No is : {employee.empNo}</p>
+                    <p>Emp Name is : {employee.empName}</p>
+                    <p>Emp Sal is : {employee.empSal}</p>
+            </div>)}
+        </div>
+    )
+}
+===============================================
+Delete
+---------
+import axios from "axios";
+import { useState } from "react"
+
+export function DeleteRecord(){
+    const[no,setNo]=useState("");
+    
+    async function deleteData(e)
+    {
+        e.preventDefault();
+        try
+        {
+//const response = await axios.delete(`http://localhost:8085/employee/deleteRecord1/${no}`);
+const response = await axios.delete(`http://localhost:3000/api/employess/${no}`);
+alert(response.data);
+        }
+        catch(err)
+        {
+            alert("Record Not FOund : " + err);
+
+        }
+    };
+    return(
+        <div style={{border:'2px solid black',width:'30%',padding:'10px',textAlign:'center',margin:'120px auto 0 auto'}}>
+            <h3>Delete Record By ID</h3>
+            <hr/>
+            <form onSubmit={deleteData}>
+            <input type="text" placeholder="Enter no" value={no} onChange={e => setNo(e.target.value)} required/>
+            <br/><br/>
+            <button type="submit">Remove Data</button>
+            </form>
+        </div>
+    )
+}
+===============================================
+update
+----------
+import axios from "axios";
+import { useState } from "react"
+export function UpdateRecord(){
+
+    const[empNo,setNo]     = useState("");
+    const[empName,setName] = useState("");
+    const[empSal,setSal]   = useState("");
+    
+    async function updateHandler(e)
+    {
+        e.preventDefault();
+        try
+        {
+//const response = await axios.put('http://localhost:8085/employee/updateRecord',{empNo,empName,empSal});
+const response = await axios.put(`http://localhost:3000/api/employess/${empNo}`, { empName, empSal: Number(empSal) });
+            alert(response.data);
+        }
+        catch(err)
+        {
+            alert(err);
+        }
+    }
+
+    return(
+        <div style={{border:'5px solid green',width:'350px',padding:'20px',margin:'50px auto 0 auto',textAlign:'center'}}>
+            <h2>Update Record Screen</h2>
+            <hr  style={{backgroundColor:'red',height:'10px'}}/>
+            <form onSubmit={updateHandler}>
+                <input type="text" placeholder="Enter No"   value={empNo}   onChange={e => setNo(e.target.value)}   required/><br/><br/>
+                <input type="text" placeholder="Enter Name" value={empName} onChange={e => setName(e.target.value)} required/><br/><br/>
+                <input type="text" placeholder="Enter Sal"  value={empSal}  onChange={e => setSal(e.target.value)}  required/><br/><br/>
+                <button type="submit">Update Record</button>
+
+            </form>
+        </div>
+    )
+}
+
+
+===============================================
+
+//npm install cors
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const app = express();
+const PORT = 3000;
+// Middleware to parse JSON bodies
+app.use(express.json());
+app.use(cors());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Connect to MongoDB (async/await style)
+async function connectDB() 
+{
+  try 
+  {
+    await mongoose.connect('mongodb://localhost:27017/company');
+    console.log('✅ MongoDB connected');
+  } 
+  catch (error) 
+  {
+    console.error('❌ MongoDB connection failed:', error);
+    process.exit(1); // Exit process if DB connection fails
+  }
+}
+
+connectDB();
+
+
+
+
+
+
+// Define Mongoose schema and model
+const employeeSchema = new mongoose.Schema(
+    {
+        empNo:    { type: Number, required: true },
+        empName:  { type: String, required: true, unique: true },
+        empSal:   { type: Number, required: true },
+    }, 
+    {   timestamps: false,
+        versionKey: false 
+    });
+
+const Employee = mongoose.model('Employee', employeeSchema);
+
+
+// CRUD API routes
+
+// Create new employee
+app.post('/api/employess', async (req, res) => {
+    try 
+    {
+        const employee = new Employee(req.body);
+        const savedEmployee = await employee.save();
+        //res.status(201).json(savedEmployee);
+        res.status(201).json({ message: 'Employee added successfully' });
+    } 
+    catch (error) 
+    {
+        res.status(400).json({ message: error.message });
+    }
+});
+
+
+
+
+// Get all employees
+app.get('/api/employess', async (req, res) => {
+    try 
+    {
+        const employees = await Employee.find();
+        res.json(employees);
+    } 
+    catch (error) 
+    {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+// Get employee by ID
+//app.get('/api/employess/:id', async (req, res) => {
+app.get('/api/employess/:empNo', async (req, res) => {
+    try 
+    {
+        //const employee = await Employee.findById(req.params.id);
+        const empNo = parseInt(req.params.empNo); 
+        const employee = await Employee.findOne({ empNo }); 
+        
+        if (!employee) 
+            return res.status(404).json({ message: 'Employee not found' });
+        
+        res.json(employee);
+    } 
+    catch (error)
+    {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+
+
+// Delete employee by ID
+//app.delete('/api/employess/:id', async (req, res) => {
+app.delete('/api/employess/:empNo', async (req, res) => {
+    try 
+    {
+//const deletedEmployee = await Employee.findByIdAndDelete(req.params.id);
+        const empNo = parseInt(req.params.empNo); 
+        const deletedEmployee = await Employee.deleteOne({empNo}); 
+
+        if (!deletedEmployee) 
+            return res.status(404).json({ message: 'Employee not found' });
+            res.json({ message: 'Employee deleted successfully' });
+    } 
+    catch (error) 
+    {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+
+
+
+
+
+
+// Update employee by ID
+//app.put('/api/employess/:id', async (req, res) => {
+app.put('/api/employess/:empNo', async (req, res) => {
+    try {
+        //const updatedEmployee = await Employee.findByIdAndUpdate(
+        const empNo = parseInt(req.params.empNo);
+        const updatedEmployee = await Employee.findOneAndUpdate(
+            { empNo: empNo },
+            req.body,{ 
+new: true,  //Update ke baad updated document return kare.
+runValidators: true //Schema ke validation rules ko enforce kare 
+                    //update ke waqt bhi
+            });
+    if (!updatedEmployee) 
+        return res.status(404).json({ message: 'Employee not found' });
+        res.json(updatedEmployee);
+    } 
+    catch (error){
+        res.status(400).json({ message: error.message });
+    }
+});
+
+
+
+
+
+
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
+});
+
+
+
