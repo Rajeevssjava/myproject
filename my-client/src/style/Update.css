@@ -1,0 +1,18 @@
+/* src/styles/Update.css */
+.form-container {
+  width: 400px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border: 2px solid #2196f3;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-container input,
+.form-container button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+}
